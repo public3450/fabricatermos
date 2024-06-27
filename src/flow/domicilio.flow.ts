@@ -22,3 +22,9 @@ export const domicilioFlow = addKeyword<Provider, Database>('mayorista')
     ].join('\n'),
     { delay: 1000, capture: true }
 )
+.addAnswer(
+    [
+        'Pronto seras atentido por un asesor'
+    ].join('\n'),
+    { delay: 10000, capture: true }
+)
