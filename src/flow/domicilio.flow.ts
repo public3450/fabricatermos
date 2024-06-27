@@ -4,7 +4,7 @@ import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import { reset } from '../idle-custom'
 
 export const domicilioFlow = addKeyword<Provider, Database>('mayorista')
-//.addAnswer(`📲 Vas a querer comerte todas estas delicias. Recuerda que puedes engallar GRATIS tu pedido con queso costeño, puerro crocante, relish de pepinillos, cebollas encurtidas y nuestras salsas artesanales ⬇️😏`, { delay: 4000 })
+.addAnswer(`⬇️😏`, { delay: 4000 })
 .addAnswer(['Perfecto! Aquí tienes nuestro catálogo de productos'],
 { media: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' })
 .addAnswer(
