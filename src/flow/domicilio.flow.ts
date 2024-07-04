@@ -8,7 +8,7 @@ import { numberClean } from './mute.flow';
 
 export const domicilioFlow = addKeyword<Provider, Database>('mayorista')
 .addAction(async (ctx, { blacklist, flowDynamic}) => {
-    const toMute = numberClean(ctx.from); 
+    const toMute = numberClean(ctx.from);
     blacklist.add(toMute);
     await  ejemploEnviarMensaje();
     return;
@@ -34,7 +34,7 @@ export const domicilioFlow = addKeyword<Provider, Database>('mayorista')
 
 // Función para enviar un mensaje utilizando el servicio HTTP
 export async function enviarMensaje(number: string, message: string, urlMedia?: string | null) {
-    const endpoint = 'http://localhost:3008/v1/messages'; // URL del endpoint configurado en tu servidor
+    const endpoint = 'http://ec2-3-16-91-217.us-east-2.compute.amazonaws.com:3008/v1/messages'; // URL del endpoint configurado en tu servidor
 
     try {
         const response = await axios.post(endpoint, { number, message, urlMedia });
