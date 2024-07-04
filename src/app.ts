@@ -9,10 +9,12 @@ const PORT = process.env.PORT ?? 3008
 
 
 
-const main = async () => {
+export const main = async () => {
 
 
-    const adapterProvider = createProvider(Provider)
+
+       const adapterProvider = createProvider(Provider, { writeMyself:'host'})
+
     const adapterDB = new Database()
 
     const { handleCtx, httpServer } = await createBot({
@@ -52,11 +54,12 @@ const main = async () => {
         '/v1/blacklist',
         handleCtx(async (bot, req, res) => {
             const { number, intent } = req.body
-            if (intent === 'remove') bot.blacklist.remove(number)
-            if (intent === 'add') bot.blacklist.add(number)
-
+            // if (intent === 'remove') bot.blacklist.remove(number)
+            //  if (intent === 'add') bot.blacklist.add(number)
+             const lista = bot.blacklist.getList();
             res.writeHead(200, { 'Content-Type': 'application/json' })
-            return res.end(JSON.stringify({ status: 'ok', number, intent }))
+
+            return res.end(JSON.stringify({ status: 'ok', number, intent,lista}))
         })
     )
 
