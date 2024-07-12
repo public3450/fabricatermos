@@ -4,7 +4,7 @@ import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import { reset, stop } from '../idle-custom'
 
 
-export const personalizadoFlow = addKeyword<Provider, Database>(['2'])
+export const personalizadoFlow = addKeyword<Provider, Database>(['personalizado'])
     .addAnswer(
         [
             '¡Seras dirigido con un asesor que te apoyara con tu personalizado! 🌟',
