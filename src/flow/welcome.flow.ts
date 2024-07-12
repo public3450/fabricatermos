@@ -1,11 +1,13 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot';
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys';
-import { domicilioFlow } from './domicilio.flow';
+import { mayoristaFlow } from './mayorista.flow';
 import { recogerFlow } from './recoger.flow';
 import { reset, start } from '../idle-custom';
 
 import {alguienFlow} from "./alguien.flow"
+import { detalFlow } from './detal.flow';
+import { personalizadoFlow } from './personalizado.flow';
 
 export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole', 'alo', 'buenas', 'menu', 'holi', 'hol', 'oe', 'buenos'])
 // .addAnswer(
@@ -52,10 +54,8 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
             '',
             '*Menú de opciones:*',
             '1️⃣ Venta Mayorista',
-            '2️⃣ Venta Personalizado',
-            '3️⃣ Venta al Detal',
-            '4️⃣ Horario',
-            '5️⃣ Ubicación',
+            '2️⃣ Venta al Detal',
+            '3️⃣ Venta Personalizado',
             '',
             'Nuestro horario de atención es de lunes a viernes de 7:30 a.m. a 4:30 p.m. y los sábados de 7:30 a.m. a 12:00 p.m.',
             '',
@@ -67,13 +67,13 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
                 const opcion = ctx.body
                 switch (opcion) {
                     case '1': {
-                        return gotoFlow(domicilioFlow)
+                        return gotoFlow(mayoristaFlow)
                     }
                     case '2': {
-                        return gotoFlow(domicilioFlow)
+                        return gotoFlow(detalFlow)
                     }
                     case '3': {
-                        return gotoFlow(domicilioFlow)
+                        return gotoFlow(personalizadoFlow)
                     }
 
 

@@ -54,8 +54,7 @@ export const main = async () => {
         '/v1/blacklist',
         handleCtx(async (bot, req, res) => {
             const { number, intent } = req.body
-            // if (intent === 'remove') bot.blacklist.remove(number)
-            //  if (intent === 'add') bot.blacklist.add(number)
+ 
              const lista = bot.blacklist.getList();
             res.writeHead(200, { 'Content-Type': 'application/json' })
 
