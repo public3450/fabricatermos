@@ -7,12 +7,7 @@ import { main } from '../app';
 import { numberClean } from './mute.flow';
 
 export const mayoristaFlow = addKeyword<Provider, Database>('mayorista')
-.addAction(async (ctx, { blacklist, flowDynamic}) => {
-    const toMute = numberClean(ctx.from);
-    blacklist.add(toMute);
-    await  ejemploEnviarMensaje(toMute);
-    return;
-})
+
 .addAnswer('📦 Consulta nuestro catálogo: Aquí encontrarás los precios de cada referencia tanto para compras al por mayor (mínimo 12 unidades) como para distribuidores (por caja o bulto).',
 { media:  `${process.env.CATALOGO_MAYORISTA}` })
 .addAnswer(
@@ -28,9 +23,15 @@ export const mayoristaFlow = addKeyword<Provider, Database>('mayorista')
         '',
         '*¡Recuerda que el costo del envío lo asume el cliente!*'
     ].join('\n'),
-    { delay: 1000, capture: true }
+    { delay: 0, capture: true }
 )
-
+.addAction(async (ctx, { blacklist, flowDynamic}) => {
+    const toMute = numberClean(ctx.from);
+    console.log("entro")
+    blacklist.add(toMute);
+    await  ejemploEnviarMensaje(toMute);
+    return;
+})
 
 
 // Ejemplo de uso de la función enviarMensaje

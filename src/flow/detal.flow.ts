@@ -1,18 +1,10 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
-import axios from 'axios';
 import { enviarMensaje } from '../utils/utils';
-import { main } from '../app';
 import { numberClean } from './mute.flow';
 
 export const detalFlow = addKeyword<Provider, Database>('detal')
-.addAction(async (ctx, { blacklist, flowDynamic}) => {
-    const toMute = numberClean(ctx.from);
-    blacklist.add(toMute);
-    await  ejemploEnviarMensaje(toMute);
-    return;
-})
 .addAnswer('📦 Consulta nuestro catálogo:',
 { media:  `${process.env.CATALOGO_MAYORISTA}` })
 .addAnswer(
@@ -28,8 +20,14 @@ export const detalFlow = addKeyword<Provider, Database>('detal')
         '',
         '*¡Recuerda que el costo del envío lo asume el cliente!*'
     ].join('\n'),
-    { delay: 1000, capture: true }
+    { delay: 0, capture: true }
 )
+.addAction(async (ctx, { blacklist, flowDynamic}) => {
+    const toMute = numberClean(ctx.from);
+    blacklist.add(toMute);
+    await  ejemploEnviarMensaje(toMute);
+    return;
+})
 
 
 

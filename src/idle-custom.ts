@@ -8,7 +8,10 @@ const timers = {};
 const idleFlow = addKeyword(EVENTS.ACTION).addAction(
     async (_, { endFlow }) => {
         return endFlow(
-            '~~Eyyy, '
+            '¡Hola! 😊\n' +
+            'Estamos aquí para ayudarte a encontrar el termo perfecto. Aún no hemos recibido una respuesta tuya, pero seguimos atentos.\n' +
+            '¿Te interesa un termo de acero inoxidable, un diseño especial, o uno con aislamiento superior? 🧐\n' +
+            'Explora nuestras opciones y encuentra el que más te guste. Visítanos en nuestro Instagram mientras decides: https://www.instagram.com/lafabricadelostermos'
         );
     }
 );
