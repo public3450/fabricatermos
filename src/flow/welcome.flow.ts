@@ -12,7 +12,7 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
         [
             '*¡Hola! Bienvenido a la Fábrica de los Termos🏭*',
             '',
-            'Soy Zore👤, tu asistente virtual. Estoy aquí para ayudarte a encontrar los mejores termos de Colombia 🇨🇴.',
+            'Soy Elizabeth👤, tu asistente virtual. Estoy aquí para ayudarte a encontrar los mejores termos de Colombia 🇨🇴.',
             '',
             '*Menú de opciones:*',
             '1️⃣ Venta Mayorista',
