@@ -22,7 +22,7 @@
   "include": [
     "**/*.js",
     "**/*.ts"
-  ],
+, "script/monitor.cjs"  ],
   "exclude": [
     "node_modules",
     "dist",
