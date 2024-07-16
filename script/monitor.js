@@ -1,5 +1,4 @@
 import pm2 from 'pm2';
-import os from 'os';
 
 const appName = 'FabricatermosChabot'; // Reemplaza con el nombre de tu aplicación en PM2
 const maxCpuUsage = 90; // Umbral de uso de CPU en porcentaje
