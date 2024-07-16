@@ -1,9 +1,9 @@
-const pm2 = require('pm2');
-const os = require('os');
+import pm2 from 'pm2';
+import os from 'os';
 
 const appName = 'FabricatermosChabot'; // Reemplaza con el nombre de tu aplicación en PM2
 const maxCpuUsage = 90; // Umbral de uso de CPU en porcentaje
-const checkInterval = 10000;  // Intervalo de verificación en milisegundos (5 segundos)
+const checkInterval = 5000; // Intervalo de verificación en milisegundos (5 segundos)
 const maxDuration = 180000; // Duración máxima en milisegundos para superar el umbral (3 minutos)
 
 let cpuUsageHistory = [];
