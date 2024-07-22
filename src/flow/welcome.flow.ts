@@ -7,7 +7,7 @@ import { reset, start } from '../idle-custom';
 import { detalFlow } from './detal.flow';
 import { personalizadoFlow } from './personalizado.flow';
 
-export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole', 'alo', 'buenas', 'menu', 'holi', 'hol', 'oe', 'buenos'])
+export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole', 'alo', 'buenas', 'menu', 'holi', 'hol', 'oe', 'buenos','buen','hello','hi'], { sensitive: true })
     .addAnswer(
         [
             '*¡Hola! Bienvenido a la Fábrica de los Termos🏭*',
