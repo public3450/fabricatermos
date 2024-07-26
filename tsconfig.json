@@ -5,6 +5,7 @@
     "declaration": false,
     "declarationMap": false,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

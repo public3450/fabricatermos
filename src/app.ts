@@ -3,11 +3,24 @@ import { createBot, createProvider, createFlow, addKeyword, utils } from '@build
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import { flow } from "./flow";
+import { fileURLToPath } from 'url';
 
+import * as fs from 'fs';
+import * as path from 'path';
+import { dirname, resolve } from 'path';
+
+// Define la interfaz para el JSON importado
+interface Funados {
+    blackList: string[];
+}
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const PORT = process.env.PORT ?? 3008
 
-
+const jsonPath = path.resolve(__dirname, 'funados.json');
+const jsonData: Funados = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 export const main = async () => {
 
@@ -21,6 +34,8 @@ export const main = async () => {
         flow: flow,
         provider: adapterProvider,
         database: adapterDB,
+    },{
+       blackList : jsonData.blackList,
     })
 
     adapterProvider.server.post(
@@ -54,7 +69,7 @@ export const main = async () => {
         '/v1/blacklist',
         handleCtx(async (bot, req, res) => {
             const { number, intent } = req.body
- 
+
              const lista = bot.blacklist.getList();
             res.writeHead(200, { 'Content-Type': 'application/json' })
 

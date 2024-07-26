@@ -1,7 +1,7 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
-import { enviarMensaje } from '../utils/utils';
+import { addStringToBlacklist, enviarMensaje } from '../utils/utils';
 import { numberClean } from './mute.flow';
 
 export const detalFlow = addKeyword<Provider, Database>('detal')
@@ -20,10 +20,11 @@ export const detalFlow = addKeyword<Provider, Database>('detal')
         '',
         '*¡Recuerda que el costo del envío lo asume el cliente!*'
     ].join('\n'),
-    { delay: 0, capture: true }
+    { delay: 0, capture: false }
 )
 .addAction(async (ctx, { blacklist, flowDynamic}) => {
     const toMute = numberClean(ctx.from);
+    await  addStringToBlacklist(toMute);
     blacklist.add(toMute);
     await  ejemploEnviarMensaje(toMute);
     return;

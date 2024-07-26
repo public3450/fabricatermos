@@ -3,6 +3,7 @@ import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 
+import { addStringToBlacklist } from '../utils/utils';
   export  const blackListFlow = addKeyword<Provider, Database>('mute')
     .addAction(async (ctx, { blacklist, flowDynamic}) => {
         if (ctx.from === process.env.NUMERO) {
@@ -11,6 +12,7 @@ import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
             const check = blacklist.checkIf(toMute);
             if (!check) {
                 blacklist.add(toMute);
+                await  addStringToBlacklist(toMute);
                 console.log("muteado")
                 await flowDynamic(`❌ ${toMute} muted`);
               //  await bot.sendMessage(number, message, { media: urlMedia ?? null })

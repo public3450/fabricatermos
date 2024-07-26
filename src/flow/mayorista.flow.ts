@@ -1,9 +1,9 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
-import axios from 'axios';
-import { enviarMensaje } from '../utils/utils';
-import { main } from '../app';
+
+import { addStringToBlacklist, enviarMensaje } from '../utils/utils';
+
 import { numberClean } from './mute.flow';
 
 export const mayoristaFlow = addKeyword<Provider, Database>('mayorista')
@@ -23,11 +23,12 @@ export const mayoristaFlow = addKeyword<Provider, Database>('mayorista')
         '',
         '*¡Recuerda que el costo del envío lo asume el cliente!*'
     ].join('\n'),
-    { delay: 0, capture: true }
+    { delay: 0, capture: false }
 )
 .addAction(async (ctx, { blacklist, flowDynamic}) => {
     const toMute = numberClean(ctx.from);
     console.log("entro")
+    await  addStringToBlacklist(toMute);
     blacklist.add(toMute);
     await  ejemploEnviarMensaje(toMute);
     return;
