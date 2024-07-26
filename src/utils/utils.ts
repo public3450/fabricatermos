@@ -34,7 +34,8 @@ interface Funados {
   const __dirname = dirname(__filename);
 
   // Ruta del archivo JSON
-  const jsonPath = resolve(__dirname, '../funados.json');
+  const jsonPath = process.env.FUNADOS_JSON_PATH || resolve(__dirname, '../../funados.json');
+
 
   // Función para leer el archivo JSON
   export const readJsonFile = (): Funados => {

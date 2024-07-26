@@ -8,19 +8,15 @@ import { fileURLToPath } from 'url';
 import * as fs from 'fs';
 import * as path from 'path';
 import { dirname, resolve } from 'path';
+import { readJsonFile } from './utils/utils';
 
-// Define la interfaz para el JSON importado
-interface Funados {
-    blackList: string[];
-}
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
+
 
 const PORT = process.env.PORT ?? 3008
 
-const jsonPath = path.resolve(__dirname, 'funados.json');
-const jsonData: Funados = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+const jsonData = readJsonFile();
 
 export const main = async () => {
 
