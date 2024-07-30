@@ -1,10 +1,11 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot';
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys';
-import { mayoristaFlow } from './mayorista-out.flow';
+
 import { reset, start } from '../idle-custom';
 
 import { detalFlow } from './detal.flow';
+import { mayoristaFlow } from './mayorista.flow';
 import { personalizadoFlow } from './personalizado.flow';
 import { personalizadoDFlow } from './personalizadod.flow';
 
@@ -33,10 +34,10 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
                         return gotoFlow(personalizadoDFlow)
                     }
                     case '2': {
-                        return gotoFlow(detalFlow)
+                        return gotoFlow(mayoristaFlow)
                     }
                     case '3': {
-                        return gotoFlow(personalizadoFlow)
+                        return gotoFlow(detalFlow)
                     }
 
 
