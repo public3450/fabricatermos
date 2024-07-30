@@ -15,7 +15,7 @@ export const personalizadoFlow = addKeyword<Provider, Database>(['personalizado'
             const TEL = process.env.PERSONALIZADO
 
 
-            const mensaje = `Hola, estoy interesado en termos personalizados `;
+            const mensaje = `Hola, estoy interesado en termos personalizados cantidad inferior a 50 unidades. `;
 
             // Codificar el mensaje para usarlo en el enlace de WhatsApp
             const enlaceWhatsApp = encodeURI(`https://wa.me/${TEL}?text=${mensaje}`);

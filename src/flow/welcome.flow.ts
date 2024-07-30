@@ -1,11 +1,12 @@
 import { addKeyword, EVENTS } from '@builderbot/bot';
 import { MemoryDB as Database } from '@builderbot/bot';
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys';
-import { mayoristaFlow } from './mayorista.flow';
+import { mayoristaFlow } from './mayorista-out.flow';
 import { reset, start } from '../idle-custom';
 
 import { detalFlow } from './detal.flow';
 import { personalizadoFlow } from './personalizado.flow';
+import { personalizadoDFlow } from './personalizadod.flow';
 
 export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole', 'alo', 'buenas', 'menu', 'holi', 'hol', 'oe', 'buenos','buen','hello','hi','buenas','Buenas tardes','Hola'])
     .addAnswer(
@@ -15,9 +16,9 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
             'Soy Elizabeth👤, tu asistente virtual. Estoy aquí para ayudarte a encontrar los mejores termos de Colombia 🇨🇴.',
             '',
             '*Menú de opciones:*',
-            '1️⃣ Venta Mayorista',
-            '2️⃣ Venta al Detal',
-            '3️⃣ Venta Personalizado',
+            '1️⃣ Venta Personalizado',
+            '2️⃣ Venta Mayorista',
+            '3️⃣ Venta al Detal',
             '',
             'Nuestro horario de atención es de lunes a viernes de 7:30 a.m. a 4:30 p.m. y los sábados de 7:30 a.m. a 12:00 p.m.',
             '',
@@ -29,7 +30,7 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
                 const opcion = ctx.body
                 switch (opcion) {
                     case '1': {
-                        return gotoFlow(mayoristaFlow)
+                        return gotoFlow(personalizadoDFlow)
                     }
                     case '2': {
                         return gotoFlow(detalFlow)
