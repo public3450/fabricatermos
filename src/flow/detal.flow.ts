@@ -12,10 +12,10 @@ export const detalFlow = addKeyword<Provider, Database>('detal')
     ], null, async (ctx, { flowDynamic }) => {
         stop(ctx);
 
-        const TEL = process.env.PERSONALIZADO
+        const TEL = process.env.DETAL
 
 
-        const mensaje = `Hola, estoy interesado en termos personalizados `;
+        const mensaje = `Hola, estoy interesado en termos al Detal `;
 
         // Codificar el mensaje para usarlo en el enlace de WhatsApp
         const enlaceWhatsApp = encodeURI(`https://wa.me/${TEL}?text=${mensaje}`);
