@@ -15,8 +15,8 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
             'Soy Elizabeth👤, tu asistente virtual. Estoy aquí para ayudarte a encontrar los mejores termos de Colombia 🇨🇴.',
             '',
             '*Menú de opciones:*',
-            '1️⃣ Venta Mayorista',
-            '2️⃣ Venta al Detal',
+            '1️⃣ Venta al Detal',
+            '2️⃣ Venta Mayorista',
             '3️⃣ Venta Personalizado',
             '',
             'Nuestro horario de atención es de lunes a viernes de 7:30 a.m. a 4:30 p.m. y los sábados de 7:30 a.m. a 12:00 p.m.',
@@ -29,10 +29,10 @@ export const welcomeFlow = addKeyword<Provider, Database>(['hola', 'hoola', 'ole
                 const opcion = ctx.body
                 switch (opcion) {
                     case '1': {
-                        return gotoFlow(mayoristaFlow)
+                        return gotoFlow(detalFlow)
                     }
                     case '2': {
-                        return gotoFlow(detalFlow)
+                        return gotoFlow(mayoristaFlow)
                     }
                     case '3': {
                         return gotoFlow(personalizadoFlow)
