@@ -10,6 +10,8 @@ export const mayoristaFlow = addKeyword<Provider, Database>('mayorista')
 
 .addAnswer('📦 Consulta nuestro catálogo: Aquí encontrarás los precios de cada referencia tanto para compras al por mayor (mínimo 12 unidades) como para distribuidores (por caja o bulto).',
 { media:  `${process.env.CATALOGO_MAYORISTA}` })
+.addAnswer('📦 Consulta nuestro catálogo premium:',
+{ media:  `${process.env.CATALOGO_PREMIUM}` })
 .addAnswer(
     [
         'Para poder crear tu perfil y agilizar tu pedido, por favor proporcióname los siguientes datos:',
