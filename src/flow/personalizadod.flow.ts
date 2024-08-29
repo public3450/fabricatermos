@@ -9,9 +9,10 @@ import { numberClean } from './mute.flow';
 import { personalizadoFlow } from './personalizado.flow';
 
 export const personalizadoDFlow = addKeyword<Provider, Database>('personalizado')
-
-.addAnswer('📦 Consulta nuestro catálogo:¡',
+.addAnswer('📦 Consulta nuestro catálogo:',
 { media:  `${process.env.CATALOGO_PERSONALIZADO}` })
+.addAnswer('📦 Consulta nuestro catálogo premium:',
+{ media:  `${process.env.CATALOGO_PREMIUM}` })
 .addAnswer(
     [
         '*Menú de opciones:*',
