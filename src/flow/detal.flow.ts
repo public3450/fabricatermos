@@ -7,6 +7,8 @@ import { reset, stop } from '../idle-custom'
 export const detalFlow = addKeyword<Provider, Database>('detal')
 .addAnswer('📦 Consulta nuestro catálogo:',
     { media:  `${process.env.CATALOGO_MAYORISTA}` })
+    .addAnswer('📦 Consulta nuestro catálogo premium:',
+    { media:  `${process.env.CATALOGO_PREMIUM}` })
     .addAnswer(
         [
             'Para poder crear tu perfil y agilizar tu pedido, por favor proporcióname los siguientes datos:',
